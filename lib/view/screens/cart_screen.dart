@@ -27,6 +27,11 @@ class _CartScreenState extends State<CartScreen> {
 
 
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          setState(() {
+            Navigator.pop(context, 'refresh');
+          });
+        }, icon: const Icon(Icons.arrow_back)),
         backgroundColor: const Color(0xfff1f3f2),
         centerTitle: true,
         actions: [
@@ -150,7 +155,7 @@ class _CartScreenState extends State<CartScreen> {
                                     products[i]['quantity'] = 0;
                                   }
                                 }
-                                cartList.removeAt(0);
+                                cartList.removeAt(index);
                                 totalAmt = getTotal();
                                 setState(() {
 
@@ -186,18 +191,8 @@ class _CartScreenState extends State<CartScreen> {
                                 totalAmt = getTotal();
                               });
 
-                              for (int i = 0;
-                              i < products.length;
-                              i++) {
-                                if (cartList[index]['id'] ==
-                                    products[i]['id']) {
-                                  products[i]['quantity'] =
-                                  cartList[index]['quantity'];
-                                }
-                              }
 
-
-                            }, icon: const Icon(Icons.remove)),
+                            }, icon: const Icon(Icons.remove, size: 16,)),
 
 
 
@@ -212,17 +207,8 @@ class _CartScreenState extends State<CartScreen> {
                                 totalAmt = getTotal();
                               });
 
-                              for (int i = 0;
-                              i < products.length;
-                              i++) {
-                                if (cartList[index]['id'] ==
-                                    products[i]['id']) {
-                                  products[i]['quantity'] =
-                                  cartList[index]['quantity'];
-                                }
-                              }
 
-                            }, icon: const Icon(Icons.add)),
+                            }, icon: const Icon(Icons.add, size: 16,)),
                           ],
                         ),
                       ),

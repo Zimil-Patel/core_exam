@@ -19,6 +19,11 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
 
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          setState(() {
+            Navigator.pop(context, 'refresh');
+          });
+        }, icon: const Icon(Icons.arrow_back)),
         backgroundColor: const Color(0xfff1f3f2),
         centerTitle: true,
         actions: [
