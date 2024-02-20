@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         totalAmt = getTotal();
                         String? refresh = await Navigator.push(context, MaterialPageRoute(builder: (context) => const CartScreen()));
 
-                        if(refresh == "refresh"){
+                        if(refresh == 'refresh'){
                           setState(() {
 
                           });
