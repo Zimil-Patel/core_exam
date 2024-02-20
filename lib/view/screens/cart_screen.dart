@@ -2,6 +2,7 @@ import 'package:core_exam/util/lists/cart.dart';
 import 'package:flutter/material.dart';
 
 import '../../util/color/theme.dart';
+import '../../util/lists/products.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -42,80 +43,7 @@ class _CartScreenState extends State<CartScreen> {
                 color: const Color(0xfff1f3f2),
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        height: height / 6,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(10),
-                          border: Border.all(color: Colors.grey.withOpacity(0.2))
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadiusDirectional.circular(10),
-                                  color: Colors.grey.withOpacity(0.2)
-                                ),
-                                child: ClipRRect(
-                                  child: Image.asset(cartList[0]['img']),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                                child: Container(
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 14.0, left: 14, right: 14),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(cartList[0]['name'], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
-                                            const Icon(Icons.delete, size: 20, color: Colors.grey,)
-                                          ],
-                                        ),
-                                      ),
-
-
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 0.0, left: 14, right: 14),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(cartList[0]['category'], style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey.shade600),),
-                                          ],
-                                        ),
-                                      ),
-
-                                      Expanded(
-                                        child: Container(
-                                          margin: const EdgeInsets.all(14),
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              IconButton(onPressed: (){}, icon: const Icon(Icons.remove)),
-
-
-
-                                              Text('${cartList[0]['quantity']}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey.shade600),),
-
-
-                                              IconButton(onPressed: (){}, icon: const Icon(Icons.add)),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                    children: List.generate(cartList.length, (index) => box(index)),
                   ),
                 ),
               )
@@ -181,6 +109,132 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  Widget box(int index){
+    return Container(
+      margin: EdgeInsets.all(10),
+      height: height / 6,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadiusDirectional.circular(10),
+          border: Border.all(color: Colors.grey.withOpacity(0.2))
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadiusDirectional.circular(10),
+                  color: Colors.grey.withOpacity(0.2)
+              ),
+              child: ClipRRect(
+                child: Image.asset(cartList[index]['img']),
+              ),
+            ),
+          ),
+          Expanded(
+              flex: 2,
+              child: Container(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 14.0, left: 14, right: 14),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(cartList[index]['name'], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                          IconButton(
+                              onPressed: (){
+                                for (int i = 0; i < products.length; i++) {
+                                  if (cartList[index]['id'] ==
+                                      products[i]['id']) {
+                                    products[i]['inCart'] = false;
+                                    products[i]['quantity'] = 0;
+                                  }
+                                }
+                                cartList.removeAt(0);
+                                totalAmt = getTotal();
+                                setState(() {
+
+                                });
+                              }, icon: const Icon(Icons.delete, size: 20, color: Colors.grey,))
+                        ],
+                      ),
+                    ),
+
+
+                    Padding(
+                      padding: const EdgeInsets.only(top: 0.0, left: 14, right: 14),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(cartList[index]['category'], style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey.shade600),),
+                        ],
+                      ),
+                    ),
+
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(14),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(onPressed: (){
+
+                              setState(() {
+                                if(cartList[index]['quantity'] > 1){
+                                  cartList[index]['quantity']--;
+                                }
+                                totalAmt = getTotal();
+                              });
+
+                              for (int i = 0;
+                              i < products.length;
+                              i++) {
+                                if (cartList[index]['id'] ==
+                                    products[i]['id']) {
+                                  products[i]['quantity'] =
+                                  cartList[index]['quantity'];
+                                }
+                              }
+
+
+                            }, icon: const Icon(Icons.remove)),
+
+
+
+                            Text('${cartList[index]['quantity']}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey.shade600),),
+
+
+                            IconButton(onPressed: (){
+
+                              setState(() {
+                                cartList[index]['quantity']++;
+
+                                totalAmt = getTotal();
+                              });
+
+                              for (int i = 0;
+                              i < products.length;
+                              i++) {
+                                if (cartList[index]['id'] ==
+                                    products[i]['id']) {
+                                  products[i]['quantity'] =
+                                  cartList[index]['quantity'];
+                                }
+                              }
+
+                            }, icon: const Icon(Icons.add)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+          ),
+        ],
+      ),
+    );
+  }
 
 }
 

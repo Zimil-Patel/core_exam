@@ -1,6 +1,7 @@
 List products = [
 
   {
+    'id' : 1,
     'name' : 'iPhone 14 Plus',
     'img' : 'asset/images/products/iphone.png',
     'category' : 'Apple',
@@ -11,6 +12,7 @@ List products = [
   },
 
   {
+    'id' : 2,
     'name' : 'Airpods',
     'img' : 'asset/images/products/airpods.png',
     'category' : 'Apple',
@@ -21,6 +23,7 @@ List products = [
   },
 
   {
+    'id' : 3,
     'name' : 'Oneplus nord',
     'img' : 'asset/images/products/oneplus1.png',
     'category' : 'OnePlus',
@@ -31,6 +34,7 @@ List products = [
   },
 
   {
+    'id' : 4,
     'name' : 'HP 15s',
     'img' : 'asset/images/products/hp15.png',
     'category' : 'HP',
@@ -41,6 +45,7 @@ List products = [
   },
 
   {
+    'id' : 5,
     'name' : 'Acer nitro',
     'img' : 'asset/images/products/acernitro.png',
     'category' : 'Acer',
@@ -51,6 +56,7 @@ List products = [
   },
 
   {
+    'id' : 6,
     'name' : 'Oneplus earbuds',
     'img' : 'asset/images/products/oneplus2.png',
     'category' : 'Oneplus',
@@ -60,6 +66,7 @@ List products = [
     'quantity' : 0
   },
   {
+    'id' : 7,
     'name' : 'iPhone 15 max',
     'img' : 'asset/images/products/iphone2.png',
     'category' : 'Apple',
