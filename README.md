@@ -1,16 +1,16 @@
 # core_exam
 
-A new Flutter project.
 
-## Getting Started
+##home
+<img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/home1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/home2.png" width = "240" height = "460">
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+##product
+<img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/detail1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/detail2.png" width = "240" height = "460">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+##cart
+<img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/cart1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/cart2.png" width = "240" height = "460">
