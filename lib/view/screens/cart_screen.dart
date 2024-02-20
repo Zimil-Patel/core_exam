@@ -117,7 +117,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget box(int index){
     return Container(
       margin: EdgeInsets.all(10),
-      height: height / 6,
+      height: height / 5,
       decoration: BoxDecoration(
           borderRadius: BorderRadiusDirectional.circular(10),
           border: Border.all(color: Colors.grey.withOpacity(0.2))
