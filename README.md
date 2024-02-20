@@ -1,16 +1,19 @@
 # core_exam
 
 
-##home
+#home
+
 <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/home1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/home2.png" width = "240" height = "460">
 
 
 
-##product
+#product
+
 <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/detail1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/detail2.png" width = "240" height = "460">
 
 
 
 
-##cart
+#cart
+
 <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/cart1.png" width = "240" height = "460"> &nbsp;&nbsp;&nbsp;&nbsp; <img src = "https://github.com/Zimil-Patel/core_exam/blob/master/snaps/cart2.png" width = "240" height = "460">
